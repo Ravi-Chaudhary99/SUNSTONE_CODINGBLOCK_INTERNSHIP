@@ -1,0 +1,481 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+
+/* Navbar */
+
+.navbar{
+
+    background:#000;
+    overflow:hidden;
+    position:fixed;
+    width:100%;
+    top:0;
+    z-index:1000;
+
+}
+
+
+.navbar a{
+
+    float:left;
+    color:white;
+    text-decoration:none;
+    padding:16px 24px;
+    font-size:18px;
+
+}
+
+
+.navbar .logo{
+
+    background:#009688;
+
+}
+
+
+.navbar a:hover{
+
+    background:#555;
+
+}
+
+
+
+
+/* Hero */
+
+.hero{
+
+    position:relative;
+    margin-top:50px;
+
+}
+
+
+.hero img{
+
+    width:100%;
+    height:600px;
+    object-fit:cover;
+
+}
+
+
+.hero-btn{
+
+    position:absolute;
+    bottom:30px;
+    left:25px;
+
+    background:#000;
+    color:white;
+
+    border:none;
+
+    padding:15px 25px;
+    font-size:20px;
+
+}
+
+
+
+
+/* Team */
+
+
+.team{
+
+    text-align:center;
+    padding:100px 20px;
+
+}
+
+
+
+.team h1{
+
+    font-size:55px;
+    font-weight:normal;
+
+}
+
+
+.team-members{
+
+    display:flex;
+    justify-content:space-around;
+    flex-wrap:wrap;
+
+}
+
+
+
+.member{
+
+    width:250px;
+    margin:20px;
+
+}
+
+
+
+.member img{
+
+    width:130px;
+    height:130px;
+    border-radius:50%;
+
+}
+
+
+
+
+
+/* Work */
+
+
+.work-section{
+
+    background:#333;
+    padding:50px 20px;
+    color:white;
+
+}
+
+
+.work-container{
+
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+
+}
+
+
+.work-text{
+
+    width:22%;
+
+}
+
+
+.work-card{
+
+    width:23%;
+    background:white;
+    color:black;
+
+}
+
+
+.work-card img{
+
+    width:100%;
+    height:180px;
+
+}
+
+
+
+
+
+/* Pricing */
+
+.pricing{
+
+    background:#f1f1f1;
+    padding:80px 20px;
+    text-align:center;
+
+}
+
+
+.pricing h1{
+
+    font-size:45px;
+    font-weight:normal;
+
+}
+
+
+.price-container{
+
+    display:flex;
+    justify-content:center;
+    gap:15px;
+
+}
+
+
+.price-card{
+
+    width:33%;
+    background:white;
+    border:1px solid #ddd;
+
+}
+
+
+/* Basic & Premium */
+
+.header{
+
+    background:black;
+    color:white;
+    padding:35px;
+    font-size:28px;
+
+}
+
+
+/* Pro */
+
+.gray{
+
+    background:#666;
+
+}
+
+
+.item{
+
+    padding:20px;
+    border-bottom:1px solid #ddd;
+    font-size:18px;
+
+}
+
+
+.price{
+
+    padding:25px;
+
+}
+
+
+.price h2{
+
+    font-size:35px;
+    font-weight:normal;
+
+}
+
+
+.price p{
+
+    color:gray;
+
+}
+
+
+.footer{
+
+    background:#000000;
+    padding:25px;
+    text-align: center;
+    color: white;
+}
+
+
+.footer button{
+
+    background:#00bfa5;
+    color:white;
+    border:none;
+    padding:15px 35px;
+    font-size:16px;
+
+}
+
+
+
+
+/* Contact */
+
+
+.contact-section{
+
+    background:#e5e5e5;
+    padding:60px 20px;
+
+}
+
+
+
+.contact-container{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    gap:40px;
+
+    flex-wrap:wrap;
+
+}
+
+
+
+
+.contact-info{
+
+    width:30%;
+
+}
+
+
+
+.contact-info h2{
+
+    display:inline-block;
+
+    border-bottom:4px solid #00bfa5;
+
+    padding-bottom:5px;
+
+    margin-bottom:25px;
+
+    font-size:40px;
+
+}
+
+
+
+.contact-info h3{
+
+    font-size:35px;
+
+    margin-bottom:20px;
+
+}
+
+
+
+.contact-info p{
+
+    font-size:20px;
+
+    margin:15px 0;
+
+}
+
+
+
+.contact-info i{
+
+    color:#00bfa5;
+
+    margin-right:10px;
+
+}
+
+
+
+
+.contact-form{
+
+    width:60%;
+
+    background:white;
+
+    padding:25px;
+
+    box-shadow:0 4px 10px rgba(0,0,0,0.2);
+
+}
+
+
+
+.contact-form label{
+
+    display:block;
+
+    margin-top:20px;
+
+}
+
+
+
+.contact-form input{
+
+    width:100%;
+
+    border:none;
+
+    border-bottom:1px solid #ccc;
+
+    padding:12px;
+
+    font-size:18px;
+
+}
+
+
+
+.send-btn{
+
+    float:right;
+
+    background:black;
+
+    color:white;
+
+    border:none;
+
+    padding:12px 25px;
+
+}
+
+
+
+.send-btn:hover{
+
+    background:#333;
+
+}
+
+
+
+
+/* Map */
+
+.map-image img{
+
+    width:100%;
+
+    display:block;
+
+}
+
+
+
+
+/* Mobile Responsive */
+
+
+@media(max-width:768px){
+
+
+.contact-info,
+.contact-form,
+.work-text,
+.work-card{
+
+    width:100%;
+
+}
+
+
+.hero img{
+
+    height:400px;
+
+}
+
+
+}
