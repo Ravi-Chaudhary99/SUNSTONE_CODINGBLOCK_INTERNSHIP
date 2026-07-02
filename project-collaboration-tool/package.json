@@ -1,0 +1,12 @@
+{
+  "name": "project-collaboration-tool",
+  "version": "1.0.0",
+  "description": "Comprehensive Project Collaboration System",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
