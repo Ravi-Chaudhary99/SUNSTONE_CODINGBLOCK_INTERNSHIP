@@ -1,12 +1,17 @@
 {
   "name": "project-collaboration-tool",
-  "version": "1.0.0",
-  "description": "Comprehensive Project Collaboration System",
-  "main": "server/server.js",
+  "version": "2.0.0",
+  "description": "Enterprise Project Collaboration System with Real DB, Auth & File Uploads",
+  "main": "server.js",
   "scripts": {
-    "start": "node server/server.js"
+    "start": "node server.js"
   },
   "dependencies": {
-    "express": "^4.19.2"
+    "bcryptjs": "^2.4.3",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
+    "multer": "^1.4.5-lts.1",
+    "sqlite3": "^5.1.7"
   }
 }
+
