@@ -3,14 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Enterprise Project Collaboration Suite</title>
+    <title>Enterprise Project Collaboration Platform</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
     <header class="app-header">
         <div class="logo">Collaborate<span>Pro</span></div>
-        <div class="header-tag">Assignment Mode: Fully Functional Blueprint</div>
+        <div class="user-panel">
+            <span class="role-badge" id="current-role">Role: Admin</span>
+            <select id="role-selector" onchange="switchRole(this.value)">
+                <option value="Admin">Admin (Full Access)</option>
+                <option value="Member">Team Member</option>
+                <option value="Client">Client (View Only)</option>
+            </select>
+        </div>
     </header>
 
     <div class="app-container">
@@ -18,9 +25,35 @@
         <!-- MAIN WORKSPACE -->
         <main class="workspace">
             
-            <!-- ROW 1: KANBAN BOARDS -->
+            <!-- ANALYTICS DASHBOARD OVERVIEW -->
             <section class="section-block">
-                <h2>Task Board (Kanban Module)</h2>
+                <h2>Project Analytics & Productivity Health</h2>
+                <div class="analytics-grid">
+                    <div class="stat-card">
+                        <div class="stat-title">Completion Rate</div>
+                        <div class="stat-value" id="stat-completion">0%</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-title">Total Logged Hours</div>
+                        <div class="stat-value" id="stat-hours">0 hrs</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-title">Billable Hours</div>
+                        <div class="stat-value" id="stat-billable">0 hrs</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-title">Estimated Revenue</div>
+                        <div class="stat-value" id="stat-revenue">$0</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- KANBAN BOARD -->
+            <section class="section-block">
+                <div class="section-header">
+                    <h2>Task Board (Kanban Module)</h2>
+                    <button class="action-btn" id="btn-add-task" onclick="toggleTaskModal()">+ Add Task</button>
+                </div>
                 <div class="kanban-board">
                     <div class="column" id="todo" ondragover="allowDrop(event)" ondrop="drop(event)">
                         <h3>To Do</h3>
@@ -37,29 +70,30 @@
                 </div>
             </section>
 
-            <!-- ROW 2: GANTT CHART VISUALIZATION -->
+            <!-- GANTT CHART -->
             <section class="section-block">
-                <h2>Gantt Chart (Milestone & Timeline Tracker)</h2>
+                <h2>Gantt Chart (Milestone & Dependencies)</h2>
                 <div class="gantt-wrapper">
                     <div class="gantt-header-row">
                         <div class="gantt-label-col">Task Title</div>
-                        <div class="gantt-timeline-col">Timeline Progress Map (July 2026)</div>
+                        <div class="gantt-timeline-col">Timeline Progress Mapping</div>
                     </div>
                     <div id="gantt-rows-container"></div>
                 </div>
             </section>
+
         </main>
 
-        <!-- RIGHT SIDEBAR: MESSAGES, OKRS & ADVANCED UTILITIES -->
+        <!-- RIGHT SIDEBAR -->
         <aside class="sidebar">
             
-            <!-- OKRs Goals -->
+            <!-- OKRs -->
             <div class="sidebar-widget">
                 <h3>Goal Tracking (OKRs)</h3>
                 <div id="okr-list"></div>
             </div>
 
-            <!-- Integrated Messaging Room -->
+            <!-- TEAM CHAT -->
             <div class="sidebar-widget communication-panel">
                 <h3>Team Chat Room</h3>
                 <div class="chat-box" id="chat-stream"></div>
@@ -69,14 +103,49 @@
                 </div>
             </div>
 
-            <!-- Expense Ledger & Payments Framework Dummy View -->
+            <!-- FILE SHARING -->
             <div class="sidebar-widget">
-                <h3>Expense Logging & Subscriptions</h3>
-                <div id="expense-list" style="font-size: 0.85rem; color: #94a3b8; margin-bottom: 8px;"></div>
-                <div class="billing-badge">Stripe Status: <strong>Sandbox Active</strong></div>
+                <h3>Shared Files & Attachments</h3>
+                <div id="file-list" class="file-list"></div>
+                <form id="file-upload-form" class="upload-box" onsubmit="uploadFile(event)">
+                    <input type="file" id="file-input" required>
+                    <button type="submit" class="action-btn sm">Upload File</button>
+                </form>
+            </div>
+
+            <!-- EXPENSE & RECEIPT LOGGING -->
+            <div class="sidebar-widget">
+                <h3>Expense Ledger & Receipts</h3>
+                <div id="expense-list" class="expense-list"></div>
+                <form id="expense-form" class="upload-box" onsubmit="logExpense(event)">
+                    <input type="text" id="expense-item" placeholder="Expense description" required>
+                    <input type="number" id="expense-amount" placeholder="Amount ($)" required>
+                    <input type="file" id="expense-receipt" accept="image/*,.pdf">
+                    <button type="submit" class="action-btn sm">Log Expense</button>
+                </form>
             </div>
 
         </aside>
+    </div>
+
+    <!-- CREATE TASK MODAL -->
+    <div id="task-modal" class="modal">
+        <div class="modal-content">
+            <h3>Create New Task</h3>
+            <input type="text" id="task-title" placeholder="Task Title" required>
+            <input type="number" id="task-hours" placeholder="Logged Hours" required>
+            <div class="checkbox-row">
+                <input type="checkbox" id="task-billable" checked>
+                <label for="task-billable">Billable Task</label>
+            </div>
+            <input type="date" id="task-start" required>
+            <input type="date" id="task-end" required>
+            <input type="text" id="task-assignee" placeholder="Assignee Name">
+            <div class="modal-actions">
+                <button onclick="submitTask()" class="action-btn">Save Task</button>
+                <button onclick="toggleTaskModal()" class="action-btn cancel">Cancel</button>
+            </div>
+        </div>
     </div>
 
     <script src="js/app.js"></script>
